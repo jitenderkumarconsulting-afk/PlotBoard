@@ -1,0 +1,76 @@
+.card {
+    border: none !important;
+}
+
+.our_games {
+    margin-top: 80px;
+}
+
+.games_text h4 {
+    font-size: 3rem !important;
+    color: #000;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.games_text h6 {
+    line-height: 25px;
+    margin-bottom: 40px;
+    color: #444;
+    font-size: 1rem;
+}
+
+.game_container {
+    border: 1px solid #ddd;
+    border-radius: 30px;
+}
+
+/* .game_list_wrap{
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+} */
+
+/* .game_list_wrap:hover{
+    border:1px solid #63d79b;
+    background-color: #63d79b;
+    transition: all 0.3s ease;
+    color: #fff;
+} */
+
+.game_list_wrap:hover h6 {
+    background-color: #c5ffed !important;
+    border-radius: 100px;
+    padding: 7px 14px 7px 14px;
+    width: auto !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block !important;
+    margin-bottom: 10px !important;
+}
+
+.game_list_align {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 !important;
+}
+
+.game_list_pd {
+    padding: 0 15px 0 15px;
+    margin-bottom: 30px;
+}
+
+@media (max-width:768px) {
+
+    .games_text h4 {
+        font-size: 2rem !important;
+        line-height: 30px;
+    }
+
+    .games_text h6 {
+        line-height: 20px;
+        font-size: 0.8rem;
+    }
+}

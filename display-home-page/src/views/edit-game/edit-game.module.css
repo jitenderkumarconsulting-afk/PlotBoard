@@ -1,0 +1,474 @@
+.edit_game_container {
+    padding: 0 80px;
+}
+
+
+/* Loader.css */
+.loader_overlay {
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* High z-index to make it on top of other elements */
+}
+
+.loader_spinner {
+    /* Style your spinner */
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+
+
+
+.dialog_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #C9DDEC;
+}
+
+.dialog_heading_icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dialog_heading_icon h1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.cross_icon_img {
+    cursor: pointer;
+}
+
+.cross_icon_img img {
+    width: 100%;
+}
+
+.square_line_icon img {
+    width: 100%;
+}
+
+.square_line_icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #F5EFFF;
+    background-color: #F5EFFF;
+    padding: 9px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card_heading_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit_game_title h1 {
+    font-size: 2.2rem !important;
+    color: #000;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.edit_game_title p {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.edit_games_action_btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit_cross_img_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_cross_pro_img img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_cross_img_text p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 20px;
+    margin-bottom: 0 !important;
+}
+
+.cross_pro_btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .cross_pro_btns span {
+    width: 100%;
+} */
+
+.btn_icon {
+    display: flex;
+    align-items: center;
+}
+
+.btn_icon img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.edit_games_save_btn {
+    width: 100%;
+    border: 1px solid #49297E;
+    background-color: #49297E;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* .edit_games_save_btn i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.edit_games_save_btn:hover {
+    background-color: #5dc269;
+    border: 1px solid #5dc269;
+    transition: all 0.3s ease;
+}
+
+.edit_games_share_btn {
+    width: 100%;
+    border: 1px solid #8FA9BD;
+    background-color: #8FA9BD;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+}
+
+.edit_games_share_btn:hover {
+    background-color: #5dc269;
+    border: 1px solid #5dc269;
+    transition: all 0.3s ease;
+}
+
+.cross_pro_img img {
+    width: 100%;
+}
+
+.play_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_games_play_btn {
+    border: 1px solid #5dc269;
+    background-color: #5dc269;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+}
+
+.edit_games_play_btn:hover {
+    background-color: #49297E;
+    border: 1px solid #49297E;
+    transition: all 0.3s ease;
+}
+
+.edit_games_play_btn span i {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* .edit_games_play_btn i{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+} */
+.edit_games_btn:first-child {
+    margin-right: 20px;
+}
+
+.edit_game_card {
+    box-shadow: 0 15px 25px #e8e7e7;
+    border-radius: 10px;
+    border: 1px solid #C9DDEC;
+}
+
+.edit_game_heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.edit_game_Chess_Pro_heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid #C9DDEC;
+    font-family: 'Inter', sans-serif;
+}
+
+.search_box {
+    border: 1px solid #e8e7e7;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin: 10px 12px;
+    color: #756e6e;
+}
+
+.edit_game_chess_img {
+    background-color: #f0ecec;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    /* margin-bottom: 10px; */
+}
+
+.edit_game_chess_img:hover {
+    background-color: #63d79b;
+    cursor: pointer;
+}
+
+.edit_game_chess_img img {
+    width: 40px;
+}
+
+.dialog_heading {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.dialog_box_bottom h4 {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #698BA5 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.dialog_link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dialog_link input {
+    width: 450px;
+    border: 1px solid #C9DDEC !important;
+    background-color: #FFFFFF !important;
+    padding: 10px;
+    color: #314B5A;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 0 !important;
+}
+
+.copy_open_link_icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.copy_open_link_icons span {
+    border: 1px solid #C0D8EB;
+    background-color: #C9DDEC;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog_text_edit_icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jsoneditor,
+.jsoneditor-mode-code,
+.ace_editor,
+.ace_hidpi,
+.ace-jsoneditor {
+    height: 650px !important;
+}
+
+.edit_game_textbox {
+    width: 600px;
+}
+
+.edit_game_textbox input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.edit_game_input_search {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.edit_game_search_btn button {
+    width: 100%;
+    border: 1px solid #5dc269;
+    background-color: #5dc269;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.edit_game_update_script button {
+    width: 100%;
+    border: 1px solid #5dc269;
+    background-color: #5dc269;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.edit_game_search_btn button:hover {
+    background-color: #49297E;
+    border: 1px solid #49297E;
+    transition: all 0.3s ease;
+}
+
+.edit_game_search_save_btn {
+    display: flex;
+    align-items: center;
+
+}
+
+@media (max-width:1340px) {
+
+    .edit_games_btn {
+        margin-top: 10px !important;
+    }
+
+    .edit_game_search_save_btn {
+        margin-top: 10px !important;
+    }
+}
+
+@media (max-width:1200px) {
+    .edit_game_container {
+        padding: 0 60px !important;
+    }
+
+    .edit_game_search_save_btn {
+        margin-top: 10px !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .edit_game_container {
+        padding: 0 40px !important;
+    }
+
+    .edit_game_input_search {
+        flex-direction: column !important;
+    }
+}
+
+@media (max-width:1024px) {
+    .edit_game_container {
+        padding: 0 20px !important;
+    }
+
+    .edit_game_textbox {
+        width: 400px;
+    }
+}
+
+
+
+@media (max-width:768px) {
+    .dialog_heading_icon h1 {
+        font-size: 12px !important;
+    }
+
+    .dialog_link input {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width:660px) {
+    .dialog_link input {
+        width: 250px !important;
+    }
+}

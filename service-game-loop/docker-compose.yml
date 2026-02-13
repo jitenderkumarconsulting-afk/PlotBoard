@@ -1,0 +1,84 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - 7011:7011
+    depends_on:
+      - mongodb
+      - cache
+      - dynamodb
+
+    environment:
+      - APP_NAME=SampleApp Game Loop Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7011
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - REDIS_DB_INDEX=0
+      - REDIS_CONNECT_TIMEOUT=10000
+      - DYNAMO_DB_URL=http://dynamodb:8000
+      - DYNAMO_DB_REGION=localhost
+      - DYNAMO_DB_ACCESS_KEY_ID=plotboard
+      - DYNAMO_DB_SECRET_ACCESS_KEY=plotboard
+    volumes:
+      - ./:/src
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.11
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.12
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.13
+
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: plotboard-dynamodb
+    hostname: dynamodb
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.14
+    restart: always
+    volumes:
+      - ./plotboard-dynamodb-data:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    command: '-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/'
+
+volumes:
+  cache:
+    driver: local
+networks:
+  plotboard-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.15.0.0/16
+          gateway: 10.15.2.1

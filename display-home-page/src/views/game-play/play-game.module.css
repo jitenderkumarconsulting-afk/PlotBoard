@@ -1,0 +1,315 @@
+.play_game_container {
+    padding: 0 80px;
+    min-height: 480px;
+}
+
+.play_game_card {
+    box-shadow: 0 15px 25px #e8e7e7;
+    border-radius: 10px;
+    border: 1px solid #C9DDEC;
+}
+
+.game_card_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play_game_card img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play_card_heading {
+    border-bottom: 1px solid #C9DDEC;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.play_heading {
+    width: auto;
+    display: flex;
+}
+
+.play_card_heading h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.time_icon_img {
+    display: flex;
+    align-items: center;
+}
+
+.time_icon_text {
+    display: flex;
+    align-items: center;
+}
+
+.time_text p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.player_turn_diablo_btn {
+    border: 2px solid #C9DDEC;
+    border-radius: 4px;
+    border-style: dashed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player_turn_text p {
+    margin-bottom: 0 !important;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+}
+
+.diablo_btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #8FA9BD;
+    border: 1px solid #8FA9BD;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.diablo_btn:hover {
+    border: 1px solid #63d79b;
+    background-color: #63d79b;
+    transition: all 0.3s ease;
+}
+
+.player_score_btn {
+    border: 1px solid #C9DDEC;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player_name {
+    display: flex;
+    align-items: center;
+}
+
+.player_name .player_name_letter {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 100%;
+    background-color: #49297E;
+    border: 1px solid #49297E;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+
+.player_red_letter {
+    background-color: #DC2020 !important;
+    border: 1px solid #DC2020 !important;
+}
+
+.player_pink_letter {
+    background-color: #DC25CA !important;
+    border: 1px solid #DC25CA !important;
+}
+
+.player_green_letter {
+    background-color: #289379 !important;
+    border: 1px solid #289379 !important;
+}
+
+.player_gray_letter {
+    background-color: #C9DDEC !important;
+    border: 1px solid #C9DDEC !important;
+}
+
+.player_score_btn .player_name .player_full_name {
+    margin-bottom: 0 !important;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+}
+
+.player_score p {
+    border: 1px solid #F5EFFF !important;
+    background-color: #F5EFFF;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-bottom: 0 !important;
+}
+
+.exit_gate_btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #49297E;
+    border: 1px solid #49297E;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exit_gate_btn:hover {
+    color: #FFFFFF;
+    border: 1px solid #63d79b;
+    background-color: #63d79b;
+    transition: all 0.3s ease;
+}
+
+.exit_game_img {
+    display: flex;
+    align-items: center;
+}
+
+.dialog_box_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.winner_img {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner_img img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play_game_winner {
+    /* display: none !important; */
+}
+
+.dialog_box_heading h1 {
+    margin-bottom: 0 !important;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.dialog_box_winner p {
+    margin-bottom: 0 !important;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.dialog_box_winner .play_game_player {
+    font-weight: 700 !important;
+    color: #49297E !important;
+}
+
+.dialog_box_game_end p {
+    margin-bottom: 0 !important;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+@media (max-width:1300px) {
+    .player_name .player_name_letter {
+        font-size: 14px !important;
+    }
+
+    .play_card_heading h1 {
+        font-size: 1rem !important;
+    }
+
+    .player_score_btn .player_name .player_full_name {
+        font-size: 12px !important;
+    }
+
+    .player_score p {
+        font-size: 12px !important;
+        /* margin-top: 8px !important; */
+    }
+
+    /* 
+    .player_score_btn {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    } */
+    /* 
+    .player_turn_diablo_btn {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    } */
+
+    /* .diablo_btn {
+        margin-top: 8px !important;
+    } */
+
+    .play_card_heading {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .time_icon_text {
+        margin-top: 8px !important;
+    }
+}
+
+@media (max-width:1200px) {
+    .play_game_container {
+        padding: 0 60px !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .play_game_container {
+        padding: 0 40px !important;
+    }
+}
+
+@media (max-width:1024px) {
+    .play_game_container {
+        padding: 0 20px !important;
+    }
+
+    .dialog_heading_icon h1 {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width:768px) {
+    .play_game_card {
+        min-height: 100px !important;
+    }
+}

@@ -1,0 +1,181 @@
+.card_container {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 0;
+    min-height: 530px;
+}
+
+.card_heading_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.card_heading {
+    font-size: 2.2rem !important;
+    color: #000;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.card_text {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.add_games_btn {
+    border: 1px solid #5dc269;
+    background-color: #5dc269;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+.add_games_btn:hover {
+    background-color: #6366F1;
+    border: 1px solid #6366F1;
+    transition: all 0.3s ease;
+}
+
+.games_cards {
+    border-radius: 20px !important;
+    box-shadow: 0 0 50px #d4dedf;
+    border: 1px solid #d4dedf;
+}
+
+.games_cards:hover .card_bottom_content {
+    margin-top: -45px;
+    transition: all 0.3s ease;
+}
+
+.games_cards:hover .card_img {
+    transition: all 0.3s ease;
+}
+
+.games_cards:hover .games_card_heading {
+    color: #6366F1 !important;
+}
+
+.card_img img {
+    border-radius: 20px 20px 0 0;
+}
+
+.card_bottom_content {
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: -30px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.games_card_heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.game_card_content {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #817575;
+    line-height: 14px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+a.delt_btn i {
+    color: #000 !important;
+}
+
+.delt_btn {
+    /* color: #ffffff; */
+    border: 1px solid #d4dedf;
+    background-color: #d4dedf;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delt_btn:hover {
+    border: 1px solid #6366F1;
+    background-color: #6366F1;
+    color: #ffffff;
+}
+
+.delt_btn:hover i {
+    color: #ffffff !important;
+}
+
+.card_bottom_actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width:1200px) {
+    .card_container {
+        width: 90% !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .games_cards {
+        border-radius: 16px !important;
+    }
+
+    .card_img img {
+        border-radius: 16px 16px 0 0 !important;
+    }
+
+    .card_bottom_content {
+        border-radius: 16px !important;
+    }
+}
+
+@media (max-width:800px) {
+    .games_card_heading {
+        font-size: 1rem !important;
+    }
+
+    .game_card_content {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width:768px) {
+    .card_container {
+        width: 90% !important;
+        margin: 0 auto;
+    }
+
+    .card_heading {
+        font-size: 2rem !important;
+    }
+
+    .card_text {
+        font-size: 14px !important;
+    }
+
+    .card_heading_btn {
+        display: block !important;
+    }
+
+    .add_game_btn_container{
+        margin-top: 12px !important;
+    }
+
+    .games_cards:hover .card_bottom_content {
+        margin-top: -30px !important;
+    }
+}

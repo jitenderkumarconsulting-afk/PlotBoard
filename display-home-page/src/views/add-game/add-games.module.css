@@ -1,0 +1,272 @@
+.add_games_container {
+    display: flex;
+    min-height: 800px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* .left_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.right_img {
+    margin-left: 60px;
+    width: 500px;
+}
+
+.right_img img {
+    width: 100%;
+}
+
+.add_games_heading h1 {
+    font-size: 42px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    color: #49297E;
+    margin-bottom: 0 !important;
+}
+
+.add_games_heading p {
+    font-size: 16px;
+    /* font-family: Fredoka One; */
+    font-weight: 400;
+    color: #698BA5;
+    font-family: 'Inter', sans-serif;
+}
+
+.form_container .textBox {
+    width: 450px;
+    border-radius: 8px;
+    border: 1px solid #C9DDEC;
+    background: #FFF;
+    padding: 8px 16px;
+    font-size: 1rem;
+    height: 50px;
+    box-shadow: 0 6px 10px rgb(92, 91, 92, 0.1);
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease;
+}
+
+.form_container .textBox:focus {
+    outline: none !important;
+    border: 2px solid #000 !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 10px rgb(92, 91, 92, 0.2);
+}
+
+.form_container .input_textarea {
+    width: 450px;
+    border-radius: 8px;
+    border: 1px solid #C9DDEC;
+    background: #FFF;
+    padding: 8px 16px;
+    font-size: 1rem;
+    box-shadow: 0 6px 10px rgb(92, 91, 92, 0.1);
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.3s ease;
+}
+
+.input_textarea::placeholder {
+    color: rgb(35, 11, 107, 0.6);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form_container input::placeholder {
+    color: rgb(35, 11, 107, 0.6);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form_invalid_form {
+    font-size: 0.9rem !important;
+    color: red;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.add_games_btn {
+    display: flex;
+    align-items: center;
+}
+
+.submit_btn {
+    border: 1px solid #49297E;
+    border-radius: 8px;
+    background-color: #49297E;
+    font-size: 12px;
+    color: #FFFFFF;
+    width: 215px;
+    font-weight: 700;
+    font-size: 16px;
+    height: 50px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit_btn:hover {
+    border: 1px solid #8FA9BD;
+    background-color: #8FA9BD;
+}
+
+.cancel_btn {
+    text-decoration: none !important;
+    border: 1px solid #8FA9BD;
+    border-radius: 8px;
+    background-color: #8FA9BD;
+    font-size: 12px;
+    color: #FFFFFF;
+    width: 215px;
+    font-weight: 700;
+    font-size: 16px;
+    height: 50px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel_btn:hover {
+    color: #FFFFFF !important;
+    border: 1px solid #49297E;
+    background-color: #49297E;
+}
+
+@media (max-width:1100px) {
+    .left_form {
+        margin-left: 20px !important;
+    }
+
+}
+
+@media (max-width:1024px) {
+
+    .form_container .textBox {
+        width: 100%;
+    }
+
+    .form_container .input_textarea {
+        width: 100%;
+    }
+
+    .form_invalid_form {
+        width: 100%;
+    }
+
+    .add_games_heading h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .submit_cancel_btn {
+        width: 100%;
+    }
+
+    .submit_btn {
+        width: 100%;
+    }
+
+    .cancel_btn {
+        width: 100% !important;
+    }
+}
+
+@media (max-width:768px) {
+    .left_form {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .right_img {
+        display: none !important;
+        margin-left: 30px !important;
+    }
+
+    .signup_title {
+        margin-bottom: 10px !important;
+    }
+
+    .add_games_heading h1 {
+        text-align: center !important;
+    }
+
+    .add_games_heading p {
+        font-size: 0.8rem !important;
+        text-align: center !important;
+    }
+
+    .form_container .textBox {
+        width: 90% !important;
+        font-size: 0.9rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto 5px auto !important;
+    }
+
+    .form_container .input_textarea {
+        width: 90% !important;
+        font-size: 0.9rem !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto 5px auto !important;
+    }
+
+    .input_textarea::placeholder {
+        color: rgb(35, 11, 107, 0.6);
+        font-family: 'Inter', sans-serif !important;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .form_container input::placeholder {
+        color: rgb(35, 11, 107, 0.6);
+        font-family: 'Inter', sans-serif !important;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .form_invalid_form {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+
+    .submit_cancel_btn {
+        width: 100%;
+    }
+
+    .add_games_btn {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .submit_btn {
+        font-size: 14px;
+        width: 100% !important;
+        display: flex;
+        margin: 0 auto !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cancel_btn {
+        font-size: 14px;
+        width: 100% !important;
+        display: flex;
+        margin: 0 auto !important;
+        justify-content: center;
+        align-items: center;
+    }
+}

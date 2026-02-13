@@ -1,0 +1,311 @@
+{
+  "game_info": {
+    "id": "chess_game_123",
+    "name": "Chess Tournament",
+    "created_at": "2023-07-16T12:00:00Z",
+    "time_control": {
+      "type": "standard",
+      "initial_time": 300,
+      "increment": 10,
+      "time_limit": 1800,
+      "delay": 5,
+      "max_moves": 50
+    },
+    "game_start_time": "2023-07-16T14:00:00Z",
+    "game_end_time": "2023-07-16T15:00:00Z",
+    "user_interval": 30,
+    "description": "A friendly chess tournament.",
+    "resources": {
+      "images": {
+        "game_image_url": "game_image_url",
+        "game_thumbnail_url": "game_thumbnail_url"
+      },
+      "animations": {},
+      "colors": {}
+    }
+  },
+  "players": [
+    {
+      "id": "player_1",
+      "username": "JohnDoe",
+      "resources": {
+        "images": {
+          "player_image_url": "player_1_image_url",
+          "player_thumbnail_url": "player_1_thumbnail_url"
+        },
+        "colors": {
+          "foreground": "#ffffff",
+          "background": "#ff0000"
+        },
+        "animations": {
+          "player_animation_url": "player_1_animation_url"
+        }
+      },
+      "actors": {
+        "in_play": ["actor_1", "actor_2", "actor_3", "actor_7"],
+        "out_of_play": ["actor_4", "actor_5", "actor_6"]
+      },
+      "user_score": 0
+    },
+    {
+      "id": "player_2",
+      "username": "JaneSmith",
+      "resources": {
+        "images": {
+          "player_image_url": "player_2_image_url",
+          "player_thumbnail_url": "player_2_thumbnail_url"
+        },
+        "colors": {
+          "foreground": "#000000",
+          "background": "#00ff00"
+        },
+        "animations": {
+          "player_animation_url": "player_2_animation_url"
+        }
+      },
+      "actors": {
+        "in_play": ["actor_8", "actor_9", "actor_10", "actor_11"],
+        "out_of_play": ["actor_12", "actor_13", "actor_14"]
+      },
+      "user_score": 0
+    }
+  ],
+  "actors": {
+    "actor_1": {
+      "actor_id": "actor_1",
+      "actor_name": "Rook",
+      "position": {
+        "row": 1,
+        "column": 1
+      },
+      "resources": {
+        "images": {
+          "actor_image_url": "rook_image_url",
+          "actor_thumbnail_url": "rook_thumbnail_url"
+        },
+        "animations": {
+          "movement_animation_url": "rook_movement_animation_url",
+          "initial_animation_url": "rook_initial_animation_url"
+        }
+      },
+      "movement_rules": {
+        "initial_move": 2,
+        "normal_move": 1,
+        "capture": 1,
+        "en_passant": true,
+        "move_cell_strategy": [
+          { "row": 1, "column": 0 },
+          { "row": -1, "column": 0 },
+          { "row": 0, "column": 1 },
+          { "row": 0, "column": -1 }
+        ]
+      }
+    },
+    "actor_2": {
+      "actor_id": "actor_2",
+      "actor_name": "Knight",
+      "position": {
+        "row": 1,
+        "column": 2
+      },
+      "resources": {
+        "images": {
+          "actor_image_url": "knight_image_url",
+          "actor_thumbnail_url": "knight_thumbnail_url"
+        },
+        "animations": {
+          "movement_animation_url": "knight_movement_animation_url",
+          "initial_animation_url": "knight_initial_animation_url"
+        }
+      },
+      "movement_rules": {
+        "initial_move": 1,
+        "normal_move": 2,
+        "capture": 1,
+        "en_passant": false,
+        "move_cell_strategy": [
+          { "row": 2, "column": 1 },
+          { "row": 2, "column": -1 },
+          { "row": -2, "column": 1 },
+          { "row": -2, "column": -1 },
+          { "row": 1, "column": 2 },
+          { "row": 1, "column": -2 },
+          { "row": -1, "column": 2 },
+          { "row": -1, "column": -2 }
+        ]
+      }
+    },
+    "actor_3": {
+      "actor_id": "actor_3",
+      "actor_name": "Bishop",
+      "position": {
+        "row": 1,
+        "column": 3
+      },
+      "resources": {
+        "images": {
+          "actor_image_url": "bishop_image_url",
+          "actor_thumbnail_url": "bishop_thumbnail_url"
+        },
+        "animations": {
+          "movement_animation_url": "bishop_movement_animation_url",
+          "initial_animation_url": "bishop_initial_animation_url"
+        }
+      },
+      "movement_rules": {
+        "initial_move": 1,
+        "normal_move": 1,
+        "capture": 1,
+        "en_passant": false,
+        "move_cell_strategy": [
+          { "row": "n", "column": "n" },
+          { "row": "-n", "column": "n" },
+          { "row": "n", "column": "-n" },
+          { "row": "-n", "column": "-n" }
+        ]
+      }
+    },
+    "actor_7": {
+      "actor_id": "actor_7",
+      "actor_name": "Queen",
+      "position": {
+        "row": 1,
+        "column": 4
+      },
+      "resources": {
+        "images": {
+          "actor_image_url": "queen_image_url",
+          "actor_thumbnail_url": "queen_thumbnail_url"
+        },
+        "animations": {
+          "movement_animation_url": "queen_movement_animation_url",
+          "initial_animation_url": "queen_initial_animation_url"
+        }
+      },
+      "movement_rules": {
+        "initial_move": 1,
+        "normal_move": 1,
+        "capture": 1,
+        "en_passant": true,
+        "move_cell_strategy": [
+          { "row": "n", "column": 0 },
+          { "row": "-n", "column": 0 },
+          { "row": 0, "column": "n" },
+          { "row": 0, "column": "-n" },
+          { "row": "n", "column": "n" },
+          { "row": "-n", "column": "n" },
+          { "row": "n", "column": "-n" },
+          { "row": "-n", "column": "-n" }
+        ]
+      }
+    }
+  },
+  "board": {
+    "rows": 8,
+    "columns": 8,
+    "resources": {
+      "images": {
+        "board_image_url": "board_image_url",
+        "board_thumbnail_url": "board_thumbnail_url"
+      }
+    },
+    "cells": [
+      [
+        {
+          "resources": {
+            "images": {
+              "cell_image_url": "cell_image_url",
+              "cell_thumbnail_url": "cell_thumbnail_url"
+            }
+          },
+          "placement": {
+            "allowed": true,
+            "movable": true,
+            "highlighted": false
+          }
+        },
+        {
+          "resources": {
+            "images": {
+              "cell_image_url": "cell_image_url",
+              "cell_thumbnail_url": "cell_thumbnail_url"
+            }
+          },
+          "placement": {
+            "allowed": true,
+            "movable": true,
+            "highlighted": false
+          }
+        }
+      ],
+      [
+        {
+          "resources": {
+            "images": {
+              "cell_image_url": "cell_image_url",
+              "cell_thumbnail_url": "cell_thumbnail_url"
+            }
+          },
+          "placement": {
+            "allowed": true,
+            "movable": true,
+            "highlighted": false
+          }
+        },
+        {
+          "resources": {
+            "images": {
+              "cell_image_url": "cell_image_url",
+              "cell_thumbnail_url": "cell_thumbnail_url"
+            }
+          },
+          "placement": {
+            "allowed": false,
+            "movable": false,
+            "highlighted": false
+          }
+        }
+      ]
+    ]
+  },
+  "game_rules": {
+    "check": true,
+    "checkmate": true,
+    "stalemate": true,
+    "draw_conditions": [
+      "insufficient_material",
+      "threefold_repetition",
+      "fifty_move_rule",
+      "draw_by_agreement",
+      "time_forfeit",
+      "material_forfeit"
+    ],
+    "time_control": {
+      "type": "standard",
+      "initial_time": 300,
+      "increment": 10,
+      "time_limit": 1800,
+      "delay": 5,
+      "max_moves": 50
+    }
+  },
+  "win_conditions": {
+    "checkmate": true,
+    "resignation": true,
+    "timeout": true,
+    "draw": true,
+    "custom_conditions": [
+      {
+        "type": "checkmate_by_specific_piece",
+        "piece_id": "actor_1",
+        "actor_id": "actor_5"
+      },
+      {
+        "type": "promotion_to_specific_piece",
+        "promotion_piece": "queen",
+        "actor_id": "actor_2",
+        "row": 8
+      }
+    ]
+  }
+}

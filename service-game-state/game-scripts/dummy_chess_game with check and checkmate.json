@@ -1,0 +1,466 @@
+{
+  "Config": {
+    "Description": "A chess game!",
+    "MaxPlayers": 2,
+    "GameDuration": "infinite",
+    "TurnDuration": "infinite",
+    "ClickableLayers": ["ObjectList", "UiList", "GridList"]
+  },
+  "Events": {
+    "LETSGO": {
+      "MaxCount": 1,
+      "Run": {
+        "UiList": [1],
+        "CanvasList": [1],
+        "GridList": [1],
+
+        "ObjectList": [
+          "Pawn1_P1", 
+          "Pawn2_P1", 
+          "Pawn3_P1", 
+          "Pawn4_P1", 
+          "Pawn5_P1", 
+          "Pawn6_P1", 
+          "Pawn7_P1", 
+          "Pawn8_P1",
+          "Knight1_P1", 
+          "Knight2_P1",
+          "Bishop1_P1", 
+          "Bishop2_P1",
+          "Rook1_P1", 
+          "Rook2_P1",
+          "Queen_P1",
+          "King_P1",
+
+
+          "Pawn1_P2", 
+          "Pawn2_P2", 
+          "Pawn3_P2", 
+          "Pawn4_P2", 
+          "Pawn5_P2", 
+          "Pawn6_P2", 
+          "Pawn7_P2", 
+          "Pawn8_P2",
+          "Knight1_P2", 
+          "Knight2_P2",
+          "Bishop1_P2", 
+          "Bishop2_P2",
+          "Rook1_P2", 
+          "Rook2_P2",
+          "Queen_P2",
+          "King_P2"
+
+        ],
+
+      }
+    },
+    "TURN": {
+      "MaxCount": "infinite",
+      "Run": {
+        "UiList": [2],
+        "ObjectsClickable": {
+          "myTurn": true
+        }
+      }
+    },
+    "WINNERS": {
+      "MaxCount": 1,
+      "Run": {
+        "UiList": ["WinnersBoxWithOkButton"],
+      }
+    },
+    "BALOONS": { //This is not high priority, this is just to give you idea what's possible with gaming events.
+      "MaxCount": 5, // increment 5 times because I want baloons event to repeat 5 times.
+      "Delay": "2", // don't restart the event all at once, wait 2seconds between restart of event which loads 4 balloons at once.
+      "Run": {
+        "UiList": ["BaloonRed","BaloonBlue","BaloonGreen","BaloonPink"], // if they are listed like this, run the objects all at once.
+      }
+    },
+    "CREDITS": { //Not high priority. Do it after we get cards done
+      "MaxCount": 1,
+      "Run": {
+        "UiList": ["CreditsBox"]
+      }
+    }
+  },
+  "CanvasList": [
+    {
+      "Layer": 0,
+      "Size": { "Height": 300, "Width": 300 }
+    }
+  ],
+  "GridList": [
+    {
+      "Layer": 1,
+      "Size": { "Rows": 8, "Columns": 8 },
+      "EverySquare":{"height": 100, "width":100, "BorderColour": "blue"},
+      "OddSquare": {"BackgroundColour": "white"},
+      "EvenSquare": {"BackgroundColour": "black"},
+      "Opacity": 20, // not priority
+      "Background": {"Image":"BattleChess.jpeg", "opacity": 10}, // could be https://youtube.com/something one day
+      "Justify": "left"
+    }
+  ],
+  "ObjectList": [
+    { "Name": "Rook1_P1", "StartPosition": { "Row": 1, "Column": 1 }, "Class": "RookPlayer1"}, // Class is just a text label identifier, can be called Rules if you want, if it makes it easier to think
+    { "Name": "Bishop1_P1", "StartPosition": { "Row": 1, "Column": 2 }, "Class": "BishopPlayer1"},
+    { "Name": "Knight1_P1", "StartPosition": { "Row": 1, "Column": 3 }, "Class": "KnightPlayer1"},
+    { "Name": "Queen_P1", "StartPosition": { "Row": 1, "Column": 4 }, "Class": "QueenPlayer1"},
+    { "Name": "King_P1", "StartPosition": { "Row": 1, "Column": 5 }, "Class": "KingPlayer1"},
+    { "Name": "Knight2_P1", "StartPosition": { "Row": 1, "Column": 6 }, "Class": "KnightPlayer1"},
+    { "Name": "Bishop2_P1", "StartPosition": { "Row": 1, "Column": 7 }, "Class": "BishopPlayer1"},
+    { "Name": "Rook2_P1", "StartPosition": { "Row": 1, "Column": 8 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn1_P1", "StartPosition": { "Row": 2, "Column": 1 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn2_P1", "StartPosition": { "Row": 2, "Column": 2 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn3_P1", "StartPosition": { "Row": 2, "Column": 3 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn4_P1", "StartPosition": { "Row": 2, "Column": 4 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn5_P1", "StartPosition": { "Row": 2, "Column": 5 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn6_P1", "StartPosition": { "Row": 2, "Column": 6 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn7_P1", "StartPosition": { "Row": 2, "Column": 7 }, "Class": "PawnPlayer1"},
+    { "Name": "Pawn8_P1", "StartPosition": { "Row": 2, "Column": 8 }, "Class": "PawnPlayer1"},
+
+
+    { "Name": "Rook1_P2", "StartPosition": { "Row": 7, "Column": 1 }, "Class": "RookPlayer2"},
+    { "Name": "Bishop1_P2", "StartPosition": { "Row": 7, "Column": 2 }, "Class": "BishopPlayer2"},
+    { "Name": "Knight1_P2", "StartPosition": { "Row": 7, "Column": 3 }, "Class": "KnightPlayer2"},
+    { "Name": "Queen_P2", "StartPosition": { "Row": 7, "Column": 4 }, "Class": "QueenPlayer2"},
+    { "Name": "King_P2", "StartPosition": { "Row": 7, "Column": 5 }, "Class": "KingPlayer2"},
+    { "Name": "Knight2_P2", "StartPosition": { "Row": 7, "Column": 6 }, "Class": "KnightPlayer2"},
+    { "Name": "Bishop2_P2", "StartPosition": { "Row": 7, "Column": 7 }, "Class": "BishopPlayer2"},
+    { "Name": "Rook2_P2", "StartPosition": { "Row": 7, "Column": 8 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn1_P2", "StartPosition": { "Row": 8, "Column": 1 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn2_P2", "StartPosition": { "Row": 8, "Column": 2 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn3_P2", "StartPosition": { "Row": 8, "Column": 3 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn4_P2", "StartPosition": { "Row": 8, "Column": 4 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn5_P2", "StartPosition": { "Row": 8, "Column": 5 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn6_P2", "StartPosition": { "Row": 8, "Column": 6 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn7_P2", "StartPosition": { "Row": 8, "Column": 7 }, "Class": "PawnPlayer2"},
+    { "Name": "Pawn8_P2", "StartPosition": { "Row": 8, "Column": 8 }, "Class": "PawnPlayer2"}
+  ],
+  "ClassList": [ // The 'ClassList' is just a free text label, it doesn't matter what it's called, can be 'RulesList', it's just a reusability tool
+    {
+      "Name": "RookPlayer1",
+       
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "EnemyCollisionAllowed": true,
+      "PathObstacleIgnore": false,
+      "EverySquareStoppable": true,
+      "Moves": [
+        {"MoveCounter":">0"[
+          {"Direction": {"UP":1}, "MaxSteps": "infinite"}, // instead of 'infinite', you could use 0, but that's not very human friendly.
+          {"Direction": {"DOWN":1}, "MaxSteps": "infinite"},
+          {"Direction": {"LEFT":1}, "MaxSteps": "infinite"},
+          {"Direction": {"RIGHT":1}, "MaxSteps": "infinite"}
+        ]}
+      ]
+    },
+    {
+      "Name": "BishopPlayer1",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false,
+      "Moves": 
+        {"MoveCounter":">0"[
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": "infinite"}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": "infinite"},
+        ]}
+    },
+    {
+      "Name": "KnightPlayer1",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "EnemyCollisionAllowed": true,
+      "PathObstacleIgnore": true,
+      "Moves": 
+        {"MoveCounter":">0"[
+          {"Direction": {"LEFT": 1, "UP" : 2}, "MaxSteps": 1}, 
+          {"Direction": {"LEFT": 1, "DOWN" : 2}, "MaxSteps": 1},
+          {"Direction": {"RIGHT": 1, "UP" : 2}, "MaxSteps": 1},
+          {"Direction": {"RIGHT": 1, "DOWN" : 2}, "MaxSteps": 1},
+          {"Direction": {"DOWN": 1, "RIGHT" : 2}, "MaxSteps": 1},
+          {"Direction": {"DOWN": 1, "LEFT" : 2}, "MaxSteps": 1},
+          {"Direction": {"UP" : 1, "RIGHT" : 2}, "MaxSteps": 1},
+          {"Direction": {"UP" : 1, "LEFT" : 2}, "MaxSteps": 1},
+        ]}
+    },
+    {
+      "Name": "QueenPlayer1",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false,
+      "Moves": [
+        {"MoveCounter":">0"[
+            {"Direction": {"UP":1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN":1},  "MaxSteps": "infinite"},
+            {"Direction": {"LEFT":1}, "MaxSteps": "infinite"},
+            {"Direction": {"RIGHT":1}, "MaxSteps": "infinite"},
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": "infinite"}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": "infinite"},
+        ]}
+      ]
+    },
+    {
+      "Name": "KingPlayer1",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false, 
+      "Moves": [
+        {"MoveCounter":">0"[
+            {"Direction": {"UP":1}, "MaxSteps": 1},
+            {"Direction": {"DOWN":1},  "MaxSteps": 1},
+            {"Direction": {"LEFT":1}, "MaxSteps": 1},
+            {"Direction": {"RIGHT":1}, "MaxSteps": 1},
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": 1}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": 1},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": 1},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": 1},
+        ]}
+      ]
+    },
+    {
+      "Name": "pawnPlayer1",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "black",
+      "PathObstacleIgnore": false,
+      "Moves": [
+        {"MoveCounter":"0"[
+          {"Direction": {"DOWN": 1}, "EnemyCollisionAllowed": false, "MaxSteps": 2},
+          {"Direction": {"DOWN_LEFT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1},
+          {"Direction": {"DOWN_RIGHT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1}
+        ]}, 
+        {"MoveCounter":">0"[
+          {"Direction": {"DOWN": 1}, "EnemyCollisionAllowed": false, "MaxSteps": 1},
+          {"Direction": {"DOWN_LEFT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1},
+          {"Direction": {"DOWN_RIGHT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1}
+      ]
+    },
+    
+
+
+
+
+    {
+      "Name": "RookPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "EnemyCollisionAllowed": true,
+      "PathObstacleIgnore": false,
+      "Moves": [
+        {"MoveCounter":">0"[
+          {"Direction": {"UP":1}, "MaxSteps": "infinite"}, // instead of 'infinite', you could use 0, but that's not very human friendly.
+          {"Direction": {"DOWN":1}, "MaxSteps": "infinite"},
+          {"Direction": {"LEFT":1}, "MaxSteps": "infinite"},
+          {"Direction": {"RIGHT":1}, "MaxSteps": "infinite"},
+        ]}
+      ]
+    },
+    {
+      "Name": "BishopPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false,
+      "Moves": 
+        {"MoveCounter":">0"[
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": "infinite"}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": "infinite"},
+        ]}
+    },
+    {
+      "Name": "KnightPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "EnemyCollisionAllowed": true,
+      "PathObstacleIgnore": true,
+      "Moves": 
+        {"MoveCounter":">0"[
+          {"Direction": {"LEFT": 1, "UP" : 2}, "MaxSteps": 1}, 
+          {"Direction": {"LEFT": 1, "DOWN" : 2}, "MaxSteps": 1},
+          {"Direction": {"RIGHT": 1, "UP" : 2}, "MaxSteps": 1},
+          {"Direction": {"RIGHT": 1, "DOWN" : 2}, "MaxSteps": 1},
+          {"Direction": {"DOWN": 1, "RIGHT" : 2}, "MaxSteps": 1},
+          {"Direction": {"DOWN": 1, "LEFT" : 2}, "MaxSteps": 1},
+          {"Direction": {"UP" : 1, "RIGHT" : 2}, "MaxSteps": 1},
+          {"Direction": {"UP" : 1, "LEFT" : 2}, "MaxSteps": 1},
+        ]}
+    },
+    {
+      "Name": "QueenPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false,
+      "Moves": [
+        {"MoveCounter":">0"[
+            {"Direction": {"UP":1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN":1},  "MaxSteps": "infinite"},
+            {"Direction": {"LEFT":1}, "MaxSteps": "infinite"},
+            {"Direction": {"RIGHT":1}, "MaxSteps": "infinite"},
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": "infinite"}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": "infinite"},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": "infinite"},
+        ]}
+      ]
+    },
+    {
+      "Name": "KingPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "EnemyCollisionAllowed": true, 
+      "PathObstacleIgnore": false, 
+      "Moves": [
+        {"MoveCounter":">0"[
+            {"Direction": {"UP":1}, "MaxSteps": 1},
+            {"Direction": {"DOWN":1},  "MaxSteps": 1},
+            {"Direction": {"LEFT":1}, "MaxSteps": 1},
+            {"Direction": {"RIGHT":1}, "MaxSteps": 1},
+            {"Direction": {"UP_LEFT": 1}, "MaxSteps": 1}, 
+            {"Direction": {"UP_RIGHT": 1}, "MaxSteps": 1},
+            {"Direction": {"DOWN_LEFT": 1}, "MaxSteps": 1},
+            {"Direction": {"DOWN_RIGHT": 1}, "MaxSteps": 1},
+        ]}
+      ]
+    },
+    {
+      "Name": "pawnPlayer2",
+      "AssetId": "id",
+      "Height": 90,
+      "Width": 50,
+      "Colour": "white",
+      "PathObstacleIgnore": false,
+      "Moves": [
+        {"MoveCounter":"0"[
+          {"Direction": {"UP": 1}, "EnemyCollisionAllowed": false, "MaxSteps": 2},
+          {"Direction": {"UP_LEFT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1},
+          {"Direction": {"DIAGONAL_UP_RIGHT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1}
+        ]}, 
+        {"MoveCounter":">0"[
+          {"Direction": {"UP": [1]}, "EnemyCollisionAllowed": false, "MaxSteps": 1},
+          {"Direction": {"UP_LEFT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1},
+          {"Direction": {"UP_RIGHT": 1}, "EnemyCollisionAllowed": true, "MaxSteps": 1}
+        ]},
+      ]
+    },
+    
+  ],
+
+
+
+
+
+
+
+
+  "UiList": [
+    {
+      "Name": "welcome",
+      "Justify": "center",
+      "Size": "100%",
+      "Text": {
+        "Content": "Welcome to Simple Board Game",
+        "RelativePosition": [50, 50]
+      }
+    },
+    {
+      "Name": "gameTurn",
+      "Justify": "bottom",
+      "Size": "100%",
+      "Text": {
+        "Content": "Player's Turn",
+        "RelativePosition": [50, 95]
+      }
+    },
+    {
+      "Name": "gameOver",
+      "Justify": "center",
+      "Size": "100%",
+      "Text": {
+        "Content": "Game Over",
+        "RelativePosition": [50, 50]
+      }
+    },
+    {
+      "Name": "end",
+      "Justify": "center",
+      "Size": "100%",
+      "Text": {
+        "Content": "Thanks for playing",
+        "RelativePosition": [50, 50]
+      }
+    }
+  ],
+  "AnimationList": [
+    {
+      "Name": "move",
+      "Url": "move_animation_url"
+    }
+  ],
+
+
+
+
+  "TriggerList": [
+    {
+      "Type": "Move",
+      "Run": {
+        "Animation": [1]
+      }
+    },
+    {
+      "Condition": {"MovesAvailable":{"King_P1":">0"}, "EnemyCollisionPathCount":">0"},
+      "Player": 1,
+      "Run": {
+        "UiList": ["CheckPlayer2"],
+      }
+    }
+  ],
+  "WinList": [
+    {
+      "Condition": {"MovesAvailable":{"King_P1":0}, "EnemyCollisionPathCount":">0"},
+      "Player": 1,
+      "Run": {
+        "UiList": ["CheckMatePlayer2Wins"],
+      }
+    },
+    {
+      "Condition": {"MovesAvailable":{"King_P2":0}, "EnemyCollisionPathCount":">0"},
+      "Player": 2,
+      "Run": {
+        "UiList": ["CheckMatePlayer1Wins"],
+      }
+    }
+  ]
+}

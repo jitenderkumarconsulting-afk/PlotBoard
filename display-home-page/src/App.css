@@ -1,0 +1,28 @@
+/*common styles css */
+
+/* edit-game dialog box */
+.dialog-box-container.play-game-dialog-box.p-dialog {
+  width: 500px !important;
+}
+
+.dialog-box-container.p-dialog {
+  width: 600px !important;
+}
+
+.dialog-box-container.p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #495057;
+  padding: 0 0 0 0 !important;
+  border-radius: 6px !important;
+}
+
+/* media query */
+
+@media (max-width:768px) {
+  .dialog-box-container.p-dialog {
+    width: 90% !important;
+  }
+  .dialog-box-container.play-game-dialog-box.p-dialog {
+    width: 80% !important;
+  }
+}

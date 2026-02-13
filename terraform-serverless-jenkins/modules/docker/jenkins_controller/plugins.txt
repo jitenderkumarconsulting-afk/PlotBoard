@@ -1,0 +1,4 @@
+amazon-ecs:1.48
+configuration-as-code:1569.vb_72405b_80249
+workflow-aggregator:581.v0c46fa_697ffd
+job-dsl:1.79

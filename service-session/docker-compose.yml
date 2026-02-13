@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - 7003:7003
+    depends_on:
+      - mongodb
+      - cache
+
+    environment:
+      - APP_NAME=SampleApp Session Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7003
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - REDIS_DB_INDEX=0
+      - REDIS_CONNECT_TIMEOUT=10000
+    volumes:
+      - ./:/src
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.11
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.12
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      plotboard-network:
+        ipv4_address: 10.15.2.13
+
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+volumes:
+  cache:
+    driver: local
+networks:
+  plotboard-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.15.0.0/16
+          gateway: 10.15.2.1

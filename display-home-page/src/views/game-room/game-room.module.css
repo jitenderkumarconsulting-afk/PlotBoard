@@ -1,0 +1,97 @@
+.game_room_container {
+    padding: 0 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+}
+
+.game_room_login_container {
+    width: 600px;
+    box-shadow: 0 8px 15px #f4f2f2;
+    border-radius: 10px;
+    border: 1px solid #C9DDEC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.max_limit_reached{
+    color: chocolate!important;
+    font: bold;
+}
+
+.game_room_login_container h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.game_room_login_container p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 0 !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.game_login_input {
+    width: 380px;
+    border: 1px solid #C9DDEC !important;
+    background-color: #FFFFFF !important;
+    padding: 10px;
+    color: #314B5A;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 0 !important;
+}
+
+.start_btn {
+    border: 1px solid #5dc269;
+    background-color: #5dc269;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+}
+
+.start_btn:hover {
+    background-color: #49297E;
+    border: 1px solid #49297E;
+    transition: all 0.3s ease;
+}
+
+@media (max-width:992px) {
+    .game_room_login_container h1 {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width:768px) {
+    .game_room_login_container h1 {
+        font-size: 16px !important;
+    }
+
+    .game_room_login_container p {
+        font-size: 14px !important;
+    }
+
+    .start_btn {
+        padding: 8px 14px !important;
+    }
+}
+
+@media (max-width:650px) {
+    .game_login_input {
+        width: 100% !important;
+    }
+}

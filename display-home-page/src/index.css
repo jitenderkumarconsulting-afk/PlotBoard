@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+.profile-img-dropdown {
+  top: 90px !important;
+  /* left: 1042px !important; */
+  width: 160px !important;
+  border-radius: 6px !important;
+  border: 1px solid #cccbcb !important;
+  background: #fff !important;
+}
+
+.profile-img-dropdown li a span {
+  color: #3e0cc3 !important;
+  font-weight: 500;
+  font-size: 16px !important;
+}
+
+.profile-img-dropdown li:hover a span {
+  color: #000 !important;
+}
+
+.profile-img-dropdown li a i {
+  padding-right: 6px;
+
+}

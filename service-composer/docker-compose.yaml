@@ -1,0 +1,323 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.11
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.12
+
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: plotboard-dynamodb
+    hostname: dynamodb
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.13
+    restart: always
+    volumes:
+      - ./plotboard-dynamodb-data:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+
+  display-home-page:
+    container_name: docker-display-home-page
+    image: docker-image-display-home-page
+    build:
+      context: ../display-home-page
+      dockerfile: ../display-home-page/Dockerfile
+    ports:
+      - 8080:80
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.31
+
+  signup-service:
+    build: ../service-signup
+    ports:
+      - 7001:7001
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp SignUp Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7001
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=Plot Board
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - SENDER_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.61
+
+  signin-service:
+    build: ../service-signin
+    ports:
+      - 7002:7002
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp SignIn Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7002
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.62
+
+  session-service:
+    build: ../service-session
+    ports:
+      - 7003:7003
+    depends_on:
+      - mongodb
+      - cache
+    environment:
+      - APP_NAME=SampleApp Session Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7003
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - REDIS_DB_INDEX=0
+      - REDIS_CONNECT_TIMEOUT=10000
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.63
+
+  create-game-service:
+    build: ../service-create-game
+    ports:
+      - 7004:7004
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp Create Game Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7004
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.64
+
+  edit-game-service:
+    build: ../service-edit-game
+    ports:
+      - 7005:7005
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp Edit Game Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7005
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.65
+
+  my-games-service:
+    build: ../service-my-games
+    ports:
+      - 7006:7006
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp My Games Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7006
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.66
+
+  delete-game-service:
+    build: ../service-delete-game
+    ports:
+      - 7007:7007
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp Delete Game Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7007
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.67
+
+  user-info-service:
+    build: ../service-user-info
+    ports:
+      - 7008:7008
+    depends_on:
+      - mongodb
+      - cache
+    environment:
+      - APP_NAME=SampleApp User Info Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7008
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.68
+
+  game-urls-service:
+    build: ../service-game-urls
+    ports:
+      - 7009:7009
+    depends_on:
+      - mongodb
+    environment:
+      - APP_NAME=SampleApp Game Urls Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7009
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.69
+
+  game-state-service:
+    build: ../service-game-state
+    ports:
+      - 7010:7010
+    depends_on:
+      - mongodb
+      - cache
+      - dynamodb
+    environment:
+      - APP_NAME=SampleApp Game State Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7010
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - REDIS_DB_INDEX=0
+      - REDIS_CONNECT_TIMEOUT=10000
+      - DYNAMO_DB_URL=http://dynamodb:8000
+      - DYNAMO_DB_REGION=localhost
+      - DYNAMO_DB_ACCESS_KEY_ID=plotboard
+      - DYNAMO_DB_SECRET_ACCESS_KEY=plotboard
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.70
+
+  game-loop-service:
+    build: ../service-game-loop
+    ports:
+      - 7011:7011
+    depends_on:
+      - mongodb
+      - cache
+      - dynamodb
+    environment:
+      - APP_NAME=SampleApp Game Loop Service
+      - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
+      - PORT=7011
+      - JWT_SECRET=plotboard-secret
+      - JWT_EXPIRATION_TIME=3600s
+      - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
+      - LOG_LEVEL=info
+      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_URL=http://plotboard.com
+      - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - REDIS_DB_INDEX=0
+      - REDIS_CONNECT_TIMEOUT=10000
+      - DYNAMO_DB_URL=http://dynamodb:8000
+      - DYNAMO_DB_REGION=localhost
+      - DYNAMO_DB_ACCESS_KEY_ID=plotboard
+      - DYNAMO_DB_SECRET_ACCESS_KEY=plotboard
+    networks:
+      plotboard-network:
+        ipv4_address: 10.17.2.71
+
+volumes:
+  cache:
+    driver: local
+
+networks:
+  plotboard-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.17.0.0/16
+          gateway: 10.17.2.1
