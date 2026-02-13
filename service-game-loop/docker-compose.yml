@@ -10,14 +10,14 @@ services:
       - dynamodb
 
     environment:
-      - APP_NAME=SampleApp Game Loop Service
+      - APP_NAME=Plot Board Game Loop Service
       - MONGO_DB_URL=mongodb://mongodb:27017/plotboard-db
       - PORT=7011
       - JWT_SECRET=plotboard-secret
       - JWT_EXPIRATION_TIME=3600s
       - JWT_AFTER_EXPIRED_MAX_ALLOWED_TIME=900
       - LOG_LEVEL=info
-      - SWAGGER_CONTACT_NAME=SampleApp
+      - SWAGGER_CONTACT_NAME=Plot Board
       - SWAGGER_CONTACT_URL=http://plotboard.com
       - SWAGGER_CONTACT_EMAIL=jitender@plotboard.com
       - REDIS_HOST=cache
